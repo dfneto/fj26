@@ -10,6 +10,11 @@
 
 <h:body>
 	<h:form>
+		<h:inputHidden value="#{produtoBean.produto.id}" />
+		<h2>
+			<h:outputText value="Novo Produto" rendered="#{empty produtoBean.produto.id}" />
+			<h:outputText value="Editar Produto" rendered="#{not empty produtoBean.produto.id}" />
+		</h2>
 		<h:panelGrid columns="2">
 			<h:outputLabel value="Nome: " for="nome" />
 			<h:inputText id="nome" value="#{produtoBean.produto.nome}" />
@@ -20,32 +25,33 @@
 			<h:outputLabel value="Preço: " for="preco" />
 			<h:inputText id="preco" value="#{produtoBean.produto.preco}" />
 
-			<h:commandButton value="Gravar" action="#{produtoBean.grava}" />
-
 		</h:panelGrid>
-	</h:form>
+		
+		<h:commandButton value="Gravar" action="#{produtoBean.grava}" />
 
-	<h:form>
 		<h:dataTable value="#{produtoBean.produtos}" var="produto">
 			<h:column>
 				<f:facet name="header">Nome</f:facet>
-			#{produto.nome}
-		</h:column>
+				#{produto.nome}
+			</h:column>
 
 			<h:column>
 				<f:facet name="header">Descrição</f:facet>
-			#{produto.descricao}
-		</h:column>
+				#{produto.descricao}
+			</h:column>
 
 			<h:column>
 				<f:facet name="header">Preço</f:facet>
-			#{produto.preco}
-		</h:column>
+				#{produto.preco}
+			</h:column>
 
 			<h:column>
 				<f:facet name="header">Ações</f:facet>
 				<h:commandLink action="#{produtoBean.remove(produto)}"
 					value="Remover" />
+				<h:commandLink value="Alterar">
+					<f:setPropertyActionListener value="#{produto}" target="#{produtoBean.produto}"/>
+				</h:commandLink>
 			</h:column>
 
 		</h:dataTable>
