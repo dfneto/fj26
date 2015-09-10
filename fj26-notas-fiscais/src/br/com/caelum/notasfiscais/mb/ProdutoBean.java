@@ -9,6 +9,7 @@ import br.com.caelum.notasfiscais.modelo.Produto;
 
 @ManagedBean
 public class ProdutoBean {
+	
 	private Produto produto = new Produto();
 	private List<Produto> produtos;
 	
@@ -16,11 +17,9 @@ public class ProdutoBean {
 		return this.produto;
 	}
 	
-	
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
-
 
 	public List<Produto> getProdutos() {
 		if (produtos == null){
@@ -31,6 +30,7 @@ public class ProdutoBean {
 	}
 	
 	public void grava() {
+		System.out.println("Passou por aqui?");
 		ProdutoDao dao = new ProdutoDao();
 		if(produto.getId() == null){
 			dao.adiciona(produto);

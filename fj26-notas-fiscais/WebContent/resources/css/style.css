@@ -8,6 +8,10 @@ body{
 	text-align:center;
 }
 
+a:hover{
+	color: red;
+}
+
 /** cabecalho **/
 #cabecalho, header{
 	background-color:#6D85F2;
@@ -206,6 +210,11 @@ table.dados tr td{
 
 .dados {
 	width: 100%;	
+}
+
+.espacamento{
+	 margin:1px; 
+	 padding:1px; 
 }
 
 .par  {
