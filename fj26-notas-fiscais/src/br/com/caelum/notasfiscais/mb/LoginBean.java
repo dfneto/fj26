@@ -9,18 +9,16 @@ import br.com.caelum.notasfiscais.modelo.Usuario;
 public class LoginBean {
 	private Usuario usuario = new Usuario();
 
-	public String efetuaLogin() {
+	public void efetuaLogin() {
 		UsuarioDao dao = new UsuarioDao();
 		boolean loginValido = dao.existe(this.usuario);
-		if (loginValido){
-			return "produto";
-		} else {
-			this.usuario = new Usuario();
-			return "login";
-		}
+		System.out.println("O login era válido? " + loginValido);
 	}
 
 	public Usuario getUsuario() {
 		return usuario;
 	}
+	
+	
+
 }
