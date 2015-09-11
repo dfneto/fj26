@@ -14,6 +14,10 @@
 		<h:graphicImage library="imagens" name="logo-uber.png"/>	
 	</div>
 	
+	<div id="usuarioLogado">
+		Logado como: #{loginBean.usuario.login}
+	</div>
+	
 	<div id="conteudo">
 		<h:form id="form">
 			<h:inputHidden value="#{produtoBean.produto.id}" />
